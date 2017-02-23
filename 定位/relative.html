@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--相对定位特点：如果div1，div2不设置定位，他们将按照正常的文档流来布局，如果div1设置了定位，则他的上下左右偏移
+    会根据他原来理应所在的位置进行偏移，简单来说如果设置了偏移，就按照他所在的位置进行偏移（包括margin），如果div2设置了relative
+    那么他的偏移也还是基于他原来的位置进行偏移的
+
+    -->
+    <style>
+        .container{
+
+        }
+        .div1{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: red;
+            left:20px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="div1">div1</div>
+        <div class="div2">div2</div>
+    </div>
+</body>
+</html>

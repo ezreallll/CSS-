@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--优势：首先渲染中间的界面-->
+    <!--布局技巧：布局原理跟双飞翼布局十分相似，首先将三列都包裹在container中。然后利用main宽度的100%把其他的挤下去
+                left跟right利用float跟margin:负数;来重新回到一列布局中，然后利用相对定位的left：-200,right:-200(
+                这里用相对定位的原因是相对定位的偏移是根据他原来所在的位置进行偏移的，而absolute的定位是根据body来定位的，
+                因为left的父对象没有设置定位属性，如果设置了定位属性，则会根据父对象进行布局，但是会忽略父对象的 padding
+                )
+    -->
+
+    <style>
+        .container {
+            height: 300px;
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+        .main {
+            width: 100%;
+            float: left;
+            height: 300px;
+            background-color: aqua;
+        }
+        .left {
+            float: left;
+            margin-left: -100%;
+            position: relative;
+            left:-200px;
+            width: 200px;
+            height: 300px;
+            background-color: red;
+        }
+        .right {
+            float: left;
+            margin-left: -200px;
+            position: relative;
+            right:-200px;
+            width: 200px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</div>
+</body>
+</html>

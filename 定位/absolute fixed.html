@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--当div1的container设置了定位，
+    1.div1将会按照父类的布局进行定位，但是，如果container设置了padding，div1将会忽略这个padding
+    的值，直接从padding开始的时候就行偏移定位，这与从margin的偏移后的位置的左上方开始定位有所不同
+    2.那div2的位置会发生什么变化呢？而当div1设置了absolute之后，他将会漂浮起来，脱离这个文档流，
+    有些地放给了他一个叫'层'的概念，所以div2的位置将根据container的文档流布局，而获得div1本来的位置。
+    3.如果div1的父对象都没有定位布局，那么div1的位置偏移将会根据body就行偏移，这也是fixed的概念。
+    -->
+    <style>
+        .container{
+            position: relative;
+            margin-left: 100px;
+            background: deepskyblue;
+            width: 500px;
+            border: 20px solid green;
+            height: 500px;
+            padding: 300px;
+        }
+        .div1{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: red;
+            left:20px;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+</div>
+</body>
+</html>
