@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .div{
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+       /* 使用margin auto 来实现
+          优势：兼容性好
+          劣势：需要指定盒子 宽度
+       */
+        .container1{
+            width: 80%;
+            margin: 0 auto;
+        }
+        /*
+        使用table来实现
+        优势：不需要父容器，只需要对自身进行设置
+        劣势：IE上存在一些兼容问题
+        */
+        .div1{
+            display: table;
+            margin: 0 auto;
+        }
+        /*
+        使用text-align inline-block来实现
+        优势：兼容性好
+        劣势：需要同时设置父容器跟自容器
+        */
+        .container2{
+            text-align: center;
+        }
+        .div1{
+            display: inline-block;
+        }
+        /*
+        使用absolute进行来实现
+        如果容器无宽度，用以下代码可以实现，如果有宽度，在div2设置margin-left：容器宽度的一半；
+        优势：无需设置容器宽度，在移动端可以使用
+        劣势：兼容性差，需要IE9及以上浏览器的支持
+        */
+        .container3{
+            position: relative;
+        }
+        .div2{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);//向左移动自身的一半
+        }
+        /*
+        使用flex进行来实现
+        1.直接在justify-content: center
+        2.在div3中设置 0auto
+         优势：实现起来简单，尤其是使用在响应式布局中
+         劣势：兼容性差，如果大面积的使用该布局可能会影响效率
+        */
+        .container4{
+            display: flex;
+            justify-content: center;
+        }
+        .div3{
+           /* margin: 0 auto;*/
+        }
+    </style>
+
+</head>
+<body>
+<div class="container4">
+    <div class="div div3"></div>
+</div>
+</body>
+</html>
